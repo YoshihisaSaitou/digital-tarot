@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DigitalTarotAndroidApp</string>
+    <string name="add_card">カードを追加</string>
+    <string name="card_image">カード画像</string>
+    <string name="delete_card">カードを削除</string>
+    <string name="delete_confirm">このカードを削除しますか？</string>
+    <string name="ok">OK</string>
+    <string name="cancel">キャンセル</string>
+    <string name="edit_card">カードを編集</string>
+    <string name="save">保存</string>
+    <string name="hint_title">名称を入力</string>
+    <string name="hint_tags">タグ（カンマ区切り）</string>
+    <string name="sort_title">並べ替え: 名称</string>
+    <string name="sort_newest">並べ替え: 新しい順</string>
+    <string name="sort_oldest">並べ替え: 古い順</string>
+    <string name="filter_by_tag">タグで絞り込み</string>
+    <string name="filter_all">すべて</string>
+    <string name="export_backup">バックアップをエクスポート</string>
+    <string name="export_share_title">バックアップを共有</string>
+    <string name="import_backup">バックアップをインポート</string>
+    <string name="import_select_title">バックアップZIPを選択</string>
+    <string name="import_done">インポートが完了しました</string>
+    <string name="import_failed">インポートに失敗しました</string>
+    <string name="import_options_title">重複時の処理</string>
+    <string name="import_opt_overwrite">上書き</string>
+    <string name="import_opt_skip">スキップ</string>
+    <string name="import_opt_duplicate">複製</string>
+</resources>

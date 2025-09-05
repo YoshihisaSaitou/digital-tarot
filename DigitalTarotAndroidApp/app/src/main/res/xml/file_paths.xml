@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- App internal files directory: files/cards/ -->
+    <files-path name="cards" path="cards/" />
+    <!-- Fallback for cache if needed -->
+    <cache-path name="cache" path="" />
+    <cache-path name="cache-cards" path="cards/" />
+</paths>
+
