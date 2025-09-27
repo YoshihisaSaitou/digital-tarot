@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
         val uri: Uri = FileProvider.getUriForFile(
             this,
-            BuildConfig.APPLICATION_ID + ".fileprovider",
+            packageName + ".fileprovider",
             photoFile
         )
 
@@ -238,7 +238,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            val uri = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".fileprovider", zipFile)
+            val uri = FileProvider.getUriForFile(this, packageName + ".fileprovider", zipFile)
             val intent = Intent(Intent.ACTION_SEND).apply {
                 type = "application/zip"
                 putExtra(Intent.EXTRA_STREAM, uri)

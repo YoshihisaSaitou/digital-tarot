@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Add JitPack to resolve GitHub-hosted artifacts like PhotoView
+        maven(url = "https://jitpack.io")
     }
 }
 
