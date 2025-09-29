@@ -22,6 +22,7 @@ class CardAdapter(
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.image)
         val title: TextView = itemView.findViewById(R.id.title)
+        val delete: ImageView = itemView.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -50,6 +51,10 @@ class CardAdapter(
         holder.itemView.setOnLongClickListener {
             onLongClick(position, item)
             true
+        }
+
+        holder.delete.setOnClickListener {
+            onLongClick(position, item)
         }
     }
 
