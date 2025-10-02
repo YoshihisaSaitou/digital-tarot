@@ -28,6 +28,7 @@ import java.util.zip.ZipOutputStream
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.UUID
+import com.magicitengineer.digitaltarotandroidapp.camera.CameraActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,23 +40,20 @@ class MainActivity : AppCompatActivity() {
     private var currentPhotoFile: File? = null
     private var currentTagFilter: String? = null
 
-    private val takePictureLauncher = registerForActivityResult(
+    private val cameraLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
         if (result.resultCode == RESULT_OK) {
-            currentPhotoFile?.let { file ->
+            val fileName = result.data?.getStringExtra(CameraActivity.RESULT_FILE_NAME)
+            if (!fileName.isNullOrEmpty()) {
                 val id = UUID.randomUUID().toString()
                 val title = SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis())
-                val item = CardItem(id = id, title = title, imageFileName = file.name)
+                val item = CardItem(id = id, title = title, imageFileName = fileName)
                 cards.add(0, item)
                 storage.save(cards)
                 applyFilterAndSort(notifyChanged = true)
             }
-        } else {
-            // Cleanup temp file if capture cancelled
-            currentPhotoFile?.let { f -> if (f.exists()) f.delete() }
         }
-        currentPhotoFile = null
     }
 
     private val detailLauncher = registerForActivityResult(
@@ -102,25 +100,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun launchCamera() {
-        val photoDir = storage.cardsDirectory()
-        if (!photoDir.exists()) photoDir.mkdirs()
-        val fileName = "card-${System.currentTimeMillis()}.jpg"
-        val photoFile = File(photoDir, fileName)
-        currentPhotoFile = photoFile
-
-        val uri: Uri = FileProvider.getUriForFile(
-            this,
-            packageName + ".fileprovider",
-            photoFile
-        )
-
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
-            putExtra(MediaStore.EXTRA_OUTPUT, uri)
-            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        }
-
-        takePictureLauncher.launch(intent)
+        val intent = Intent(this, CameraActivity::class.java)
+        cameraLauncher.launch(intent)
     }
 
     private fun confirmDelete(position: Int, item: CardItem) {

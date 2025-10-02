@@ -23,4 +23,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "DigitalTarotAndroidApp"
 include(":app")
- 
+
+include(":OpenCV")

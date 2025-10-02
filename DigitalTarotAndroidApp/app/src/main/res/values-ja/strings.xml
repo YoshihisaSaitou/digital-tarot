@@ -25,4 +25,7 @@
     <string name="import_opt_overwrite">上書き</string>
     <string name="import_opt_skip">スキップ</string>
     <string name="import_opt_duplicate">複製</string>
+    <string name="err_out_of_frame">カードが枠からはみ出しています。もう少し離れてください。</string>
+    <string name="err_too_small">カードが小さすぎます。枠に対して85%以上になるよう近づけてください。</string>
+    <string name="err_blur_or_not_found">ブレを検出。端末を固定してください。</string>
 </resources>
